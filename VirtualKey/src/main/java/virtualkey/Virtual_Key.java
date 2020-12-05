@@ -17,7 +17,7 @@ public class Virtual_Key {
 		Thread.sleep(1000);
 		System.out.println("  Welcome to LockedMe.com");
 		System.out.println("  Developer: NiallGr ");
-		System.out.println("   Hi " + System.getProperty("user.name") + " The current working Dir " + path.toAbsolutePath()); 
+		System.out.println("   Hi " + System.getProperty("user.name") + ", " +"The current working Dir " + path.toAbsolutePath()); 
 		Thread.sleep(1000);
 		System.out.println("      ***************** " + "\n");
 		Thread.sleep(1000);
@@ -42,7 +42,9 @@ public class Virtual_Key {
 		    }
 	}
 //		First User Options
+	@SuppressWarnings("unused")
 	public static void MainMenu() throws IOException {
+		@SuppressWarnings("resource")
 		Scanner input= new Scanner(System.in);
 		loop:
 			while (true) {
@@ -64,8 +66,6 @@ public class Virtual_Key {
 					Path path = Paths.get("");
 					File directory =new File(path.toAbsolutePath().toString() + "\\NewFiles");
 					File[]contentsofDirectory=directory.listFiles();
-//					Print out array Testing
-//					System.out.println(Arrays.toString(directory.list()));
 					System.out.println(directory);
 					for (File object : contentsofDirectory) {
 						if(object.isFile()) {

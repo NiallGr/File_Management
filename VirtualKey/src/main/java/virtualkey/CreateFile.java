@@ -12,7 +12,7 @@ public class CreateFile {
 		  
 	    }  
 
-	public void CreateFile() throws IOException {
+	public void CreateFile(){
 		 try {  
 			 Path path = Paths.get("");
 			 System.out.println("Please enter new file name: ");
@@ -25,7 +25,8 @@ public class CreateFile {
 			        System.out.println("File created: " + myObj.getName()); 
 			        Thread.sleep(1000);
 //			        Back To Menu
-			        Virtual_Key backToMenu = new Virtual_Key();
+			        @SuppressWarnings("unused")
+					Virtual_Key backToMenu = new Virtual_Key();
 					Virtual_Key.MainMenu();
 			      } else {  
 			        System.out.println("File already exists.");  
@@ -33,8 +34,14 @@ public class CreateFile {
 			    } catch (IOException | InterruptedException e) {
 			      System.out.println("An error occurred.");
 			      e.printStackTrace(); 
-			      Virtual_Key backToMenu = new Virtual_Key();
-					Virtual_Key.MainMenu();
+			      @SuppressWarnings("unused")
+				Virtual_Key backToMenu = new Virtual_Key();
+					try {
+						Virtual_Key.MainMenu();
+					} catch (IOException e1) {
+						System.out.println("Error trying to reach the main menu");
+						e1.printStackTrace();
+					}
 			    }  
 		} 
 	}

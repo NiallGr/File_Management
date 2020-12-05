@@ -24,7 +24,7 @@ public class DeleteClass {
 	      try {
 			Virtual_Key.MainMenu();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Error trying to reach the main menu");
 			e.printStackTrace();
 		}
 	    } else {
