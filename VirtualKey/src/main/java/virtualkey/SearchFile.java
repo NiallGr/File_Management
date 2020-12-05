@@ -13,7 +13,8 @@ public class SearchFile {
   
 
   public void SearchFile() {
-	  System.out.println("Please Enter New File Name");
+	  System.out.println("********************************** \n" );
+	  System.out.print("Please Enter New File Name: ");
 	    try (Scanner input = new Scanner(System.in)) {
 			String searchFile; 
 			  searchFile = input.next();
@@ -47,7 +48,6 @@ private void promptReturnToMenu() {
 	 System.out.println("Press \"ENTER\" to return to menu...");
 	    try {
 	    	System.in.read();
-	    	Virtual_Key backToMenu = new Virtual_Key();
 			Virtual_Key.MainMenu();
 	    } catch (IOException e) {
 	        System.out.println("Error on entry");

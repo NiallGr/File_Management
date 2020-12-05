@@ -15,7 +15,8 @@ public class CreateFile {
 	public void CreateFile(){
 		 try {  
 			 Path path = Paths.get("");
-			 System.out.println("Please enter new file name: ");
+			 System.out.println("********************************** \n" );
+			 System.out.print("Please enter new file name: ");
 			    Scanner input= new Scanner(System.in);
 			    String newFile;
 				newFile = input.next();
@@ -34,8 +35,8 @@ public class CreateFile {
 			    } catch (IOException | InterruptedException e) {
 			      System.out.println("An error occurred.");
 			      e.printStackTrace(); 
-			      @SuppressWarnings("unused")
 				Virtual_Key backToMenu = new Virtual_Key();
+				
 					try {
 						Virtual_Key.MainMenu();
 					} catch (IOException e1) {

@@ -13,7 +13,8 @@ public class DeleteClass {
 	
 	public void DeleteFile() {
 		Path path = Paths.get("");
-		 System.out.println("Please Enter New File Name");
+		System.out.println("********************************** \n" );
+		 System.out.print("Please enter a file to be deleted: ");
 		    @SuppressWarnings("resource")
 			Scanner input= new Scanner(System.in);
 		    String deleteFile;
@@ -29,6 +30,8 @@ public class DeleteClass {
 		}
 	    } else {
 	      System.out.println("Failed to delete the file.");
+	      System.out.println("********************************** \n");
+	      DeleteFile();
 	    }
 	}
 }

@@ -63,6 +63,7 @@ public class Virtual_Key {
 				case 1:
 					
 //					New Feature : Please enter new file path, or use default.
+					System.out.println("********************************** \n" );
 					Path path = Paths.get("");
 					File directory =new File(path.toAbsolutePath().toString() + "\\NewFiles");
 					File[]contentsofDirectory=directory.listFiles();
@@ -80,7 +81,6 @@ public class Virtual_Key {
 				    break loop;
 //				    Interaction with files 4 options and new user choice
 				case 2:
-					MenuAddDeleteSearch menu_add_delete_Search = new MenuAddDeleteSearch();
 					MenuAddDeleteSearch.MenuADS();
 					break loop;
 //					Case 3 Close application 
