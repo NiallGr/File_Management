@@ -32,8 +32,8 @@ public class MenuAddDeleteSearch {
 		    break loop;
 //		    Delete File
 		case 2:
-			DeleteClass deleteClass =new DeleteClass();
-			deleteClass.DeleteFile();
+			DeleteFiles deletefiles =new DeleteFiles();
+			deletefiles.DeleteFile();
 			System.out.println("File Was Deleted" );				
 			break loop;
 //			Search File

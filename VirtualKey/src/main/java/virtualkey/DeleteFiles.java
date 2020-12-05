@@ -5,7 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner; 
 
-public class DeleteClass {
+public class DeleteFiles {
 
 	public static void main(String[] args) {
 
@@ -30,7 +30,6 @@ public class DeleteClass {
 		}
 	    } else {
 	      System.out.println("Failed to delete the file.");
-	      System.out.println("********************************** \n");
 	      DeleteFile();
 	    }
 	}
