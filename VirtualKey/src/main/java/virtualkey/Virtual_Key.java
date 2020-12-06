@@ -62,18 +62,29 @@ public class Virtual_Key {
 //				See all files 
 				case 1:
 					
-//					New Feature : Please enter new file path, or use default.
-					System.out.println("********************************** \n" );
+//					
+					System.out.println("******************************** \n" );
 					Path path = Paths.get("");
 					File directory =new File(path.toAbsolutePath().toString() + "\\NewFiles");
+					String test1 = new String(path.toAbsolutePath().toString());
+					int test1Length = test1.length() - 1;
+					System.out.println(test1);
+					char test2 = test1.charAt(test1Length);
+					if(test1.charAt(test1Length) == '1'){
+						directory = new File(path.toAbsolutePath().toString() + "\\VirtualKey\\NewFiles");
+					} else {
+						directory =new File(path.toAbsolutePath().toString() + "\\NewFiles");
+					}
+					System.out.println(directory.toString());
 					File[]contentsofDirectory=directory.listFiles();
-					System.out.println(directory);
+					System.out.println(contentsofDirectory.length);
 					for (File object : contentsofDirectory) {
 						if(object.isFile()) {
 							System.out.format("File name: %s%n", object.getName());
 						} 
 						else {
 							System.out.println("There was a error");
+							
 						}
 					}
 					promptEnterKey();

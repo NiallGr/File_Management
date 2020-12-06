@@ -11,7 +11,6 @@ public class CreateFile {
 	  public static void main(String[] args) {  
 		  
 	    }  
-
 	public void CreateFile(){
 		 try {  
 			 Path path = Paths.get("");
@@ -20,18 +19,44 @@ public class CreateFile {
 			    Scanner input= new Scanner(System.in);
 			    String newFile;
 				newFile = input.next();
-			      File myObj = new File(path.toAbsolutePath().toString() + "\\NewFiles", newFile); 
-			      if (myObj.createNewFile()) { 
-			    	
-			        System.out.println("File created: " + myObj.getName()); 
-			        Thread.sleep(1000);
-//			        Back To Menu
-			        @SuppressWarnings("unused")
-					Virtual_Key backToMenu = new Virtual_Key();
-					Virtual_Key.MainMenu();
-			      } else {  
-			        System.out.println("File already exists.");  
-			      }  
+				
+				File directory =new File(path.toAbsolutePath().toString() + "\\NewFiles");
+				String absolutePath = new String(path.toAbsolutePath().toString());
+				int absolutePathLength = absolutePath.length() - 1;
+				char userPath = absolutePath.charAt(absolutePathLength);
+//				Option 1 file path:
+				if(absolutePath.charAt(absolutePathLength) == '1'){
+				directory = new File(path.toAbsolutePath().toString() + "\\VirtualKey\\NewFiles", newFile);
+				File myObj = new File(path.toAbsolutePath().toString() + "\\\\VirtualKey\\NewFiles", newFile); 
+					 if (myObj.createNewFile()) { 
+					    	
+					        System.out.println("File created: " + myObj.getName()); 
+					        Thread.sleep(1000);
+//					        Back To Menu
+					        @SuppressWarnings("unused")
+							Virtual_Key backToMenu = new Virtual_Key();
+							Virtual_Key.MainMenu();
+					      } else {  
+					        System.out.println("File already exists."); 
+					        Virtual_Key backToMenu = new Virtual_Key();
+					      }  
+//				Option 2 filePath:	 
+				} else {
+					directory =new File(path.toAbsolutePath().toString() + "\\NewFiles", newFile);
+					File myObj = new File(path.toAbsolutePath().toString() + "\\NewFiles", newFile); 
+					if (myObj.createNewFile()) { 
+				        System.out.println("File created: " + myObj.getName()); 
+				        Thread.sleep(1000);
+//				        Back To Menu
+				        @SuppressWarnings("unused")
+						Virtual_Key backToMenu = new Virtual_Key();
+						Virtual_Key.MainMenu();
+				      } else {  
+				        System.out.println("File already exists.");  
+				        Virtual_Key backToMenu = new Virtual_Key();
+				      }  
+				}
+
 			    } catch (IOException | InterruptedException e) {
 			      System.out.println("An error occurred.");
 			      e.printStackTrace(); 

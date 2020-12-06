@@ -19,18 +19,42 @@ public class DeleteFiles {
 			Scanner input= new Scanner(System.in);
 		    String deleteFile;
 			deleteFile = input.next();
-		      File myObj = new File(path.toAbsolutePath().toString() + "\\NewFiles", deleteFile);  
-	    if (myObj.delete()) { 
-	      System.out.println("Deleted the file: " + myObj.getName());
-	      try {
-			Virtual_Key.MainMenu();
-		} catch (IOException e) {
-			System.out.println("Error trying to reach the main menu");
-			e.printStackTrace();
-		}
+			
+			File directory =new File(path.toAbsolutePath().toString() + "\\NewFiles");
+			String absolutePath = new String(path.toAbsolutePath().toString());
+			int absolutePathLength = absolutePath.length() - 1;
+			char userPath = absolutePath.charAt(absolutePathLength);
+//			Option 1 file path:
+			if(absolutePath.charAt(absolutePathLength) == '1'){
+			directory = new File(path.toAbsolutePath().toString() + "\\VirtualKey\\NewFiles", deleteFile);
+			File myObj = new File(path.toAbsolutePath().toString() + "\\\\VirtualKey\\NewFiles", deleteFile); 
+			 if (myObj.delete()) { 
+			      System.out.println("Deleted the file: " + myObj.getName());
+			      try {
+					Virtual_Key.MainMenu();
+				} catch (IOException e) {
+					System.out.println("Error trying to reach the main menu");
+					e.printStackTrace();
+				}
+			    } else {
+			      System.out.println("Failed to delete the file.");
+			      DeleteFile();
+			    } 
 	    } else {
-	      System.out.println("Failed to delete the file.");
-	      DeleteFile();
+	    	directory = new File(path.toAbsolutePath().toString() + "\\NewFiles", deleteFile);
+	    	File myObj = new File(path.toAbsolutePath().toString() + "\\NewFiles", deleteFile); 
+		 if (myObj.delete()) { 
+		      System.out.println("Deleted the file: " + myObj.getName());
+		      try {
+				Virtual_Key.MainMenu();
+			} catch (IOException e) {
+				System.out.println("Error trying to reach the main menu");
+				e.printStackTrace();
+			}
+		    } else {
+		      System.out.println("Failed to delete the file.");
+		      DeleteFile();
+		    }
 	    }
 	}
 }
