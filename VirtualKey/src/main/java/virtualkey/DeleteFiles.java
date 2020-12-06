@@ -1,60 +1,41 @@
 package virtualkey;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Scanner; 
+import java.util.Scanner;
 
 public class DeleteFiles {
-
-	public static void main(String[] args) {
-
-	}
-	
+  
 	public void DeleteFile() {
-		Path path = Paths.get("");
-		System.out.println("********************************** \n" );
-		 System.out.print("Please enter a file to be deleted: ");
-		    @SuppressWarnings("resource")
-			Scanner input= new Scanner(System.in);
-		    String deleteFile;
-			deleteFile = input.next();
-			
-			File directory =new File(path.toAbsolutePath().toString() + "\\NewFiles");
-			String absolutePath = new String(path.toAbsolutePath().toString());
-			int absolutePathLength = absolutePath.length() - 1;
-			char userPath = absolutePath.charAt(absolutePathLength);
-//			Option 1 file path:
-			if(absolutePath.charAt(absolutePathLength) == '1'){
-			directory = new File(path.toAbsolutePath().toString() + "\\VirtualKey\\NewFiles", deleteFile);
-			File myObj = new File(path.toAbsolutePath().toString() + "\\\\VirtualKey\\NewFiles", deleteFile); 
-			 if (myObj.delete()) { 
-			      System.out.println("Deleted the file: " + myObj.getName());
-			      try {
+		System.out.println("********************************** \n");
+		System.out.print("Please enter a file to be deleted: ");
+		Scanner input = new Scanner(System.in);
+		String deleteFileName = input.next();
+
+		File deleteFile = new File(Virtual_Key.directory.toString(), deleteFileName);
+
+		// Checking that the file directory exists
+		if(Virtual_Key.directory.exists()) {
+
+			// Checking that the file successfully deleted
+			if (deleteFile.delete()) {
+				System.out.println("Deleted the file: " + deleteFile.getName());
+				
+				// Printing the menu again.
+				try {
 					Virtual_Key.MainMenu();
 				} catch (IOException e) {
 					System.out.println("Error trying to reach the main menu");
 					e.printStackTrace();
 				}
-			    } else {
-			      System.out.println("Failed to delete the file.");
-			      DeleteFile();
-			    } 
-	    } else {
-	    	directory = new File(path.toAbsolutePath().toString() + "\\NewFiles", deleteFile);
-	    	File myObj = new File(path.toAbsolutePath().toString() + "\\NewFiles", deleteFile); 
-		 if (myObj.delete()) { 
-		      System.out.println("Deleted the file: " + myObj.getName());
-		      try {
-				Virtual_Key.MainMenu();
-			} catch (IOException e) {
-				System.out.println("Error trying to reach the main menu");
-				e.printStackTrace();
+			} else {
+				System.out.println("Failed to delete the file.");
+				DeleteFile();
 			}
-		    } else {
-		      System.out.println("Failed to delete the file.");
-		      DeleteFile();
-		    }
-	    }
+		} else {
+			System.out.println("The directory does not exist. Please restart the application.");
+		}
 	}
 }
